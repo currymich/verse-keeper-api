@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# verse-keeper-api
+Rails backend for verse-keeper
