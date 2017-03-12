@@ -1,27 +1,39 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # verse-keeper-api
 Rails backend for verse-keeper
+
+## ERD
+
+- Book
+   - Has one summary
+   - Has many chapters
+       - Has many verses
+       
+- User
+   - Has many saved-verses
+   - Has many notes
+   
+   
+### Schemas   
+```
+Book {
+  name: String;
+  chapters: [Integer],
+  summary: String
+}
+```
+
+```
+Chapter {
+  verses: [{
+    text: String,
+    number: Integer
+  }]
+}
+```
+   
+```
+User {
+  
+}
+```
+  
