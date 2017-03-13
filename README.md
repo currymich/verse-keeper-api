@@ -33,7 +33,21 @@ Chapter {
    
 ```
 User {
-  
+  username: String,
+  email: String,
+  password_digest: String
 }
 ```
-  
+
+```
+Notes {
+   text: String,
+   verse_id: Integer,
+   user_id: Integer
+}
+```
+
+## Wireframes
+
+#### [Homepage](https://wireframe.cc/Ij14Ul)
+#### [Saved Verses](https://wireframe.cc/rVu4jn)
