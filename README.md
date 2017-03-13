@@ -15,39 +15,34 @@ Rails backend for verse-keeper
    
 ### Schemas   
 ```
-Book {
-  name: String;
-  chapters: [Integer],
-  summary: String
-}
-```
-
-```
-Chapter {
-  verses: [{
-    text: String,
-    number: Integer
-  }]
-}
+Verse
+  t.string "text"
+  t.integer "chapter"
+  t.integer "verse"
+  t.integer "book_id"
 ```
    
 ```
-User {
-  username: String,
-  email: String,
-  password_digest: String
-}
+User
+  t.string "username"
+  t.string "email"
+  t.string "password_digest"
 ```
 
 ```
-Notes {
-   text: String,
-   verse_id: Integer,
-   user_id: Integer
-}
+Notes 
+   t.string "text"
+   t.integer "verse_id"
+   t.integer "user_id"
 ```
 
 ## Wireframes
 
 #### [Homepage](https://wireframe.cc/Ij14Ul)
 #### [Saved Verses](https://wireframe.cc/rVu4jn)
+
+## Technology Used
+
+#### Bible API: http://www.esvapi.org/
+Example verse search: http://www.esvapi.org/v2/rest/passageQuery?key=IP&passage=Gen+11+11-15&include-headings=false
+
