@@ -4,9 +4,7 @@ Rails backend for verse-keeper
 ## ERD
 
 - Book
-   - Has one summary
-   - Has many chapters
-       - Has many verses
+   - Has many verses
        
 - User
    - Has many verses
@@ -17,8 +15,8 @@ Rails backend for verse-keeper
 ```
 Verse
   t.string "text"
-  t.integer "chapter"
-  t.integer "verse"
+  t.integer "chapter_num"
+  t.integer "verse_num"
   t.integer "book_id"
 ```
    
