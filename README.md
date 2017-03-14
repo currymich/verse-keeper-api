@@ -1,4 +1,4 @@
-# verse-keeper-api
+# Verse Keeper API
 Rails backend for verse-keeper
 
 ## ERD
@@ -9,7 +9,7 @@ Rails backend for verse-keeper
        - Has many verses
        
 - User
-   - Has many saved-verses
+   - Has many verses
    - Has many notes
    
    
@@ -43,6 +43,5 @@ Notes
 
 ## Technology Used
 
-#### Bible API: http://www.esvapi.org/
-Example verse search: http://www.esvapi.org/v2/rest/passageQuery?key=IP&passage=Gen+11+11-15&include-headings=false
-
+#### Bible API: http://www.rubydoc.info/gems/biblesearch-api/1.2.0
+#### Node, Express, Angular, Rails
