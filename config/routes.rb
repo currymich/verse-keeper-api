@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection do
       get '/search/:version/:book/:chapter/:verse', to: 'verses#search_verse'
       get '/search/:version/:book/:chapter', to: 'verses#search_chap'
+      get '/votd', to: 'verses#votd'
     end
   end
 end
