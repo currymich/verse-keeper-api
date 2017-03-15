@@ -6,4 +6,9 @@ Rails.application.routes.draw do
       post '/', to: 'users#signup'
     end
   end
+  resources :verses, only: [:show, :update] do
+    collection do
+      get '/search/:version/:book/:chapter/:verse', to: 'verses#search'
+    end
+  end
 end

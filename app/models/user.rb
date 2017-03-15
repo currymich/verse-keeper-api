@@ -4,4 +4,5 @@ class User < ApplicationRecord
 
   has_many :verses, dependent: :destroy
   has_many :notes, through: :verses
+
 end
