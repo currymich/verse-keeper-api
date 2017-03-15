@@ -17,6 +17,12 @@ class Bible < ApplicationRecord
     return result
   end
 
+  def self.chap(query)
+    result = @biblesearch.chapter("#{query[:version_id]}:#{query[:book_id]}.#{query[:chapter]}").value.text
+
+    return result
+  end
+
   private
     @biblesearch = BibleSearch.new(ENV["BIBLESEARCH_API_KEY"])
 end

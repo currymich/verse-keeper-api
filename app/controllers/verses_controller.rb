@@ -11,8 +11,8 @@ class VersesController < ApplicationController
   end
 
   def search_chap
-    query = {version_id: params[:version], book_id: params[:book], chapter: params[:chapter], verse: params[:verse]}
-    result = Bible.verse(query)
+    query = {version_id: params[:version], book_id: params[:book], chapter: params[:chapter]}
+    result = Bible.chap(query)
 
     render json: result
   end
