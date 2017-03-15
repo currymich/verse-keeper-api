@@ -1,14 +1,20 @@
 class Bible < ApplicationRecord
-  def self.search(query)
+  def self.verse(query)
     #"eng-ESV:2Tim.1.5"
-    puts query
-    result = @biblesearch.verse(query)
+    if query[:verse].is_a? Array
+      result = @biblesearch.verses("#{query[:version_id]}:#{query[:book_id]}.#{query[:chapter]}","#{query[:verse][0]}", "#{query[:verse][1]}")
+
+      merge = ""
+      result.collection.each do |verse|
+        merge += verse[:text]
+      end
+
+      result = merge
+    else
+      result = @biblesearch.verse(query).value.text
+    end
 
     return result
-  end
-
-  def self.hello
-    puts "hello world"
   end
 
   private

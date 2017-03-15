@@ -1,8 +1,19 @@
 class VersesController < ApplicationController
-  def search
-    query = {version_id: params[:version], book_id: params[:book], chapter: params[:chapter], verse: params[:verse]}
-    result = Bible.search(query)
+  def search_verse
+    if params[:verse].include? '-'
+      params[:verse] = params[:verse].split('-')
+    end
 
-    render json: result.value.text
+    query = {version_id: params[:version], book_id: params[:book], chapter: params[:chapter], verse: params[:verse]}
+    result = Bible.verse(query)
+
+    render json: result
+  end
+
+  def search_chap
+    query = {version_id: params[:version], book_id: params[:book], chapter: params[:chapter], verse: params[:verse]}
+    result = Bible.verse(query)
+
+    render json: result
   end
 end

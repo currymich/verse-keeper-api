@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
   resources :verses, only: [:show, :update] do
     collection do
-      get '/search/:version/:book/:chapter/:verse', to: 'verses#search'
+      get '/search/:version/:book/:chapter/:verse', to: 'verses#search_verse'
+      get '/search/:version/:book/:chapter', to: 'verses#search_chap'
     end
   end
 end
