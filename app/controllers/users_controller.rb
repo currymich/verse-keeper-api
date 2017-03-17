@@ -4,9 +4,9 @@ class UsersController < ApplicationController
     if user.save && user.authenticate(params[:user][:password])
       token = token(user.id, user.email)
 
-      render json: {status: 200, message: "'#{user.email}' created and logged in", user: user, token: token}
+      render json: {status: 200, message: "#{user.name} created and logged in", user: user, token: token}
     else
-      render json: {status: 422, user: user.errors}
+      render json: {status: 422, message: "Bad parameters"}
     end
   end
 
@@ -20,9 +20,9 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:user][:password])
       token = token(user.id, user.email)
 
-      render json: {status: 201, user: user, message: "'#{user.email}' logged in", token: token}
+      render json: {status: 201, user: user, message: "#{user.name} logged in", token: token}
     else
-      render json: {status: 401, message: "unauthorized"}
+      render json: {status: 401, message: "Unauthorized"}
     end
   end
 
