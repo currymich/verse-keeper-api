@@ -1,6 +1,6 @@
 class Bible < ApplicationRecord
   #https://github.com/americanbible/biblesearch-api-ruby for more info on api call syntax
-  
+
   def self.verse(query)
     #params[:verse] is split into an array inside of verses_controller if passed in the url following the format '5-25', otherwise it is passed as a string
     if query[:verse].is_a? Array

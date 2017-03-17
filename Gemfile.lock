@@ -48,6 +48,10 @@ GEM
     byebug (9.0.6)
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
+    dotenv (2.2.0)
+    dotenv-rails (2.2.0)
+      dotenv (= 2.2.0)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
     ffi (1.9.18)
     globalid (0.3.7)
@@ -142,6 +146,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   biblesearch-api (~> 1.2)
   byebug
+  dotenv-rails
   jwt
   listen (~> 3.0.5)
   pg (~> 0.18)

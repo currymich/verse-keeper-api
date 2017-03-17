@@ -21,6 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'pry-rails'
 gem 'biblesearch-api', '~> 1.2'
+gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
