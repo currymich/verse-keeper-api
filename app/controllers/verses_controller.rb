@@ -25,13 +25,7 @@ class VersesController < ApplicationController
     require 'rss'
 
     votd = RSS::Parser.parse('http://www.biblegateway.com/usage/votd/rss/votd.rdf?31', false)
-    verse_content = votd.channel.item.content_encoded
-    cleaned_verse = verse_content.split(/&[lr]dquo;/)[1]
 
-    verse_title = votd.channel.item.title
-
-    verse = "<h3>#{verse_title}</h3><p>#{verse_content}</p>"
-
-    render json: verse
+    render json: votd
   end
 end
