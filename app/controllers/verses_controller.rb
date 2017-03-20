@@ -9,7 +9,7 @@ class VersesController < ApplicationController
     query = {version_id: params[:version], book_id: params[:book], chapter: params[:chapter], verse: params[:verse]}
     result = Bible.verse(query)
 
-    render json: result
+    render json: {result: result}
   end
 
   def search_chap
@@ -17,7 +17,7 @@ class VersesController < ApplicationController
     query = {version_id: params[:version], book_id: params[:book], chapter: params[:chapter]}
     result = Bible.chap(query)
 
-    render json: result
+    render json: {result: result}
   end
 
   # Query biblegateway for verse of the day
