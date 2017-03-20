@@ -3,6 +3,6 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :verses, dependent: :destroy
-  has_many :notes, through: :verses
+  has_one :note, through: :verses
 
 end

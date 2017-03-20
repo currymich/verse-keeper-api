@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314194108) do
+ActiveRecord::Schema.define(version: 20170320112352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,9 @@ ActiveRecord::Schema.define(version: 20170314194108) do
 
   create_table "notes", force: :cascade do |t|
     t.string   "text"
-    t.integer  "user_id"
     t.integer  "verse_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_notes_on_user_id", using: :btree
     t.index ["verse_id"], name: "index_notes_on_verse_id", using: :btree
   end
 
@@ -40,17 +38,13 @@ ActiveRecord::Schema.define(version: 20170314194108) do
   end
 
   create_table "verses", force: :cascade do |t|
-    t.string   "test"
-    t.integer  "chapter"
-    t.integer  "verse"
-    t.string   "book"
+    t.string   "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_verses_on_user_id", using: :btree
   end
 
-  add_foreign_key "notes", "users"
   add_foreign_key "notes", "verses"
   add_foreign_key "verses", "users"
 end

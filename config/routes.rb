@@ -6,8 +6,9 @@ Rails.application.routes.draw do
       post '/', to: 'users#signup'
     end
   end
-  resources :verses, only: [:show, :update] do
+  resources :verses, only: [:delete] do
     collection do
+      post '/save', to: 'verses#save'
       get '/search/:version/:book/:chapter/:verse', to: 'verses#search_verse'
       get '/search/:version/:book/:chapter', to: 'verses#search_chap'
       get '/votd', to: 'verses#votd'

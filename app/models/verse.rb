@@ -1,3 +1,4 @@
 class Verse < ApplicationRecord
-  has_many :notes, dependent: :destroy
+  has_one :note, dependent: :destroy
+  belongs_to :user
 end
