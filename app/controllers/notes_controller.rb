@@ -19,6 +19,7 @@ class NotesController < ApplicationController
       render json: {status: 201, note: note, message: "Note updated"}
     else
       render json: {status: 422, message: "Bad parameters"}
+    end
   end
 
   def destroy
@@ -34,7 +35,7 @@ class NotesController < ApplicationController
     if note.save!
       render json: {status: 201, note: note, message: "New note created"}
     else
-      render json: {status: 422, "Bad parameters"}
+      render json: {status: 422, message: "Bad parameters"}
     end
   end
 
