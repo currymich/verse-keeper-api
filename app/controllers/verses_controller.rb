@@ -20,6 +20,29 @@ class VersesController < ApplicationController
     render json: {result: result}
   end
 
+  def save
+    verse = Verse.new(verse_params)
+
+    if verse.save
+      render json: {status: 200, message: "Verse saved", verse: verse}
+    else
+      render json: {status: 422, message: "Bad parameters"}
+    end
+  end
+
+  def user_verses
+    verses = User.find(params[:id]).verses
+
+    render json: {verses: verses}
+  end
+
+  def destroy
+    verse = Verse.find(params[:id])
+
+    verse.destroy
+    render json: {status: 204}
+  end
+
   # Query biblegateway for verse of the day
   def votd
     require 'rss'
@@ -28,4 +51,10 @@ class VersesController < ApplicationController
 
     render json: votd
   end
+
+  private
+
+    def verse_params
+      params.required(:verse).permit(:text, :user_id, :reference)
+    end
 end
