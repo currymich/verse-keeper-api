@@ -1,37 +1,44 @@
 # Verse Keeper API
 Rails backend for verse-keeper
 
+[Live site](https://verse-keeper-ui.herokuapp.com/)
+
+[Frontend repo](https://github.com/currymich/verse-keeper-ui)
+
 ## ERD
 
-- Book
-   - Has many verses
-       
 - User
+   - Unique username, email
    - Has many verses
    - Has many notes
    
+- Verse
+   - Has many notes
+   - Belongs to user
+       
+- Note
+   - Belongs to verse
    
 ### Schemas   
 ```
 Verse
-  t.string "text"
-  t.integer "chapter_num"
-  t.integer "verse_num"
-  t.integer "book_id"
+ t.string   "text"
+ t.integer  "user_id"
+ t.string   "reference"
 ```
    
 ```
 User
-  t.string "username"
-  t.string "email"
-  t.string "password_digest"
+ t.string   "username"
+ t.string   "email"
+ t.string   "password_digest"
+ t.string   "name"
 ```
 
 ```
 Notes 
-   t.string "text"
-   t.integer "verse_id"
-   t.integer "user_id"
+ t.string   "text"
+ t.integer  "verse_id"
 ```
 
 ## Wireframes
