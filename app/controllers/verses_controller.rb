@@ -53,7 +53,7 @@ class VersesController < ApplicationController
   def votd
     require 'rss'
 
-    votd = RSS::Parser.parse('http://www.biblegateway.com/usage/votd/rss/votd.rdf?31', false)
+    votd = RSS::Parser.parse('https://www.biblegateway.com/usage/votd/rss/votd.rdf?31', false)
 
     render json: votd
   end
