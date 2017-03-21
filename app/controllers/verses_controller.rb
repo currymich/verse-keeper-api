@@ -30,6 +30,12 @@ class VersesController < ApplicationController
     end
   end
 
+  def show
+    verse = Verse.find(params[:id])
+
+    render json: {verse: verse}
+  end
+
   def user_verses
     verses = User.find(params[:id]).verses
 

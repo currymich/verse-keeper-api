@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :notes, only: [:show, :update, :destroy, :create]
+  resources :notes, only: [:update, :destroy, :create]
   resources :users, only: [:show] do
     collection do
       post '/login', to: 'users#login'
       post '/', to: 'users#signup'
     end
   end
-  resources :verses, only: [:destroy] do
+  resources :verses, only: [:show, :destroy] do
     collection do
       post '/save', to: 'verses#save'
       get '/search/:version/:book/:chapter/:verse', to: 'verses#search_verse'
